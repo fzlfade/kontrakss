@@ -1,4 +1,4 @@
-# 🚀 Vibe Coder Sejati
+# Vibe Coder Sejati
 
 > _"Code with passion, deploy with confidence."_
 
@@ -6,7 +6,7 @@ Sebuah project kolaborasi tim developer yang penuh semangat dan dedikasi tinggi.
 
 ---
 
-## 👥 Tim Kami
+## Tim Kami
 
 | No  | Nama       | Role               |
 | --- | ---------- | ------------------ |
@@ -17,7 +17,7 @@ Sebuah project kolaborasi tim developer yang penuh semangat dan dedikasi tinggi.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **HTML5** — Struktur halaman
 - **CSS3** — Styling & animasi
@@ -25,7 +25,7 @@ Sebuah project kolaborasi tim developer yang penuh semangat dan dedikasi tinggi.
 
 ---
 
-## � Struktur Project
+## Struktur Project
 
 ```
 kontrakss/
@@ -39,7 +39,7 @@ kontrakss/
 
 ---
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 1. Clone repository ini
    ```bash
@@ -50,6 +50,6 @@ kontrakss/
 
 ---
 
-## � Lisensi
+## Lisensi
 
 Project ini dibuat oleh tim **Vibe Coder Sejati** — 2026.

@@ -11,75 +11,115 @@
 </head>
 <body>
 
-  <!-- Background Ambient -->
-  <div class="bg-ambient">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+  <!-- Particle Canvas Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#" class="navbar-brand">
-        <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
-        <span class="logo-text">VCS</span>
+        <div class="logo-container">
+          <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
+          <span class="logo-text">VCS</span>
+        </div>
       </a>
-      <ul class="navbar-links">
-        <li><a href="#team">Tim</a></li>
-        <li><a href="#tech">Tech Stack</a></li>
-        <li><a href="#motto">Motto</a></li>
+      <ul class="navbar-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+        <li><a href="#team" class="nav-link" data-section="team">Tim</a></li>
+        <li><a href="#tech" class="nav-link" data-section="tech">Tech Stack</a></li>
+        <li><a href="#stats" class="nav-link" data-section="stats">Stats</a></li>
+        <li><a href="#motto" class="nav-link" data-section="motto">Motto</a></li>
       </ul>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="container">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Aktif & Produktif
-      </div>
-      <h1>
-        <span class="gradient-text">Vibe Coder</span><br/>Sejati
-      </h1>
-      <p class="subtitle">
-        Empat developer, satu visi. Kami membangun solusi digital dengan semangat, kreativitas, dan kode yang bersih.
-      </p>
-      <div class="hero-buttons">
-        <a href="#team" class="btn btn-primary"><i class="fa-solid fa-users"></i> Kenali Tim Kami</a>
-        <a href="#tech" class="btn btn-secondary"><i class="fa-solid fa-bolt"></i> Tech Stack</a>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          <span>Aktif & Produktif</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line line-1">
+            <span class="word" style="--delay: 0">Kami</span>
+            <span class="word" style="--delay: 1">Adalah</span>
+          </span>
+          <span class="line line-2">
+            <span class="animated-gradient-text">Vibe Coder</span>
+          </span>
+          <span class="line line-3">
+            <span class="word" style="--delay: 3">Sejati</span>
+            <span class="hero-emoji" style="--delay: 4">🚀</span>
+          </span>
+        </h1>
+        <p class="hero-subtitle">
+          Empat developer, satu visi. Kami membangun solusi digital dengan
+          <span class="highlight">semangat</span>, <span class="highlight">kreativitas</span>,
+          dan <span class="highlight">kode yang bersih</span>.
+        </p>
+        <div class="hero-buttons">
+          <a href="#team" class="btn btn-primary glow-btn">
+            <i class="fa-solid fa-users"></i>
+            <span>Kenali Tim Kami</span>
+            <div class="btn-glow"></div>
+          </a>
+          <a href="#tech" class="btn btn-outline">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Tech Stack</span>
+          </a>
+        </div>
       </div>
 
       <!-- Terminal Card -->
       <div class="terminal-card">
         <div class="terminal-header">
-          <span class="terminal-dot red"></span>
-          <span class="terminal-dot yellow"></span>
-          <span class="terminal-dot green"></span>
+          <div class="terminal-dots">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <span class="terminal-title">~/vibe-coder-sejati</span>
         </div>
-        <div class="terminal-body">
+        <div class="terminal-body" id="terminal-body">
           <div class="terminal-line">
-            <span class="prompt">~/vibe-coder $</span>
+            <span class="prompt">$</span>
             <span class="command"> git log --oneline -4</span>
           </div>
-          <div class="terminal-line">
-            <span class="output">a1b2c3d</span> feat: Zidhan — project setup 
+          <div class="terminal-line output-line">
+            <span class="hash">a1b2c3d</span> feat: Zidhan — project setup 🏗️
+          </div>
+          <div class="terminal-line output-line">
+            <span class="hash">e4f5g6h</span> feat: Ilham — UI components 🎨
+          </div>
+          <div class="terminal-line output-line">
+            <span class="hash">i7j8k9l</span> feat: Faizal — API integration 🔌
+          </div>
+          <div class="terminal-line output-line">
+            <span class="hash">m0n1o2p</span> feat: Rio — CI/CD pipeline ⚙️
           </div>
           <div class="terminal-line">
-            <span class="output">e4f5g6h</span> feat: Ilham — UI components 
-          </div>
-          <div class="terminal-line">
-            <span class="output">i7j8k9l</span> feat: Faizal — API integration 🔌
-          </div>
-          <div class="terminal-line">
-            <span class="output">m0n1o2p</span> feat: Rio — CI/CD pipeline 
-          </div>
-          <div class="terminal-line">
-            <span class="prompt">~/vibe-coder $</span>
-            <span class="cursor"></span>
+            <span class="prompt">$</span>
+            <span class="cursor-block"></span>
           </div>
         </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll ke bawah</span>
       </div>
     </div>
   </section>
@@ -88,42 +128,118 @@
   <section class="section" id="team">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">Our Team</span>
-        <h2 class="section-title">Para Vibe Coder <i class="fa-solid fa-fire"></i></h2>
+        <span class="section-label"><i class="fa-solid fa-fire"></i> Our Team</span>
+        <h2 class="section-title">Para <span class="animated-gradient-text">Vibe Coder</span></h2>
         <p class="section-subtitle">Masing-masing punya keahlian unik, bersatu jadi kekuatan luar biasa.</p>
       </div>
 
       <div class="team-grid">
         <!-- Zidhan -->
-        <div class="team-card reveal">
-          <div class="team-avatar"><i class="fa-solid fa-crown"></i></div>
+        <div class="team-card reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-border-gradient"></div>
+          <div class="team-avatar">
+            <i class="fa-solid fa-crown"></i>
+            <div class="avatar-ring"></div>
+          </div>
           <h3 class="name">Zidhan</h3>
           <p class="role">Project Lead</p>
+          <div class="skill-bars">
+            <div class="skill">
+              <span class="skill-name">Leadership</span>
+              <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">Architecture</span>
+              <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+          </div>
           <p class="tagline">// architect of dreams</p>
+          <div class="card-social">
+            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
         </div>
 
         <!-- Ilham -->
-        <div class="team-card reveal">
-          <div class="team-avatar"><i class="fa-solid fa-palette"></i></div>
+        <div class="team-card reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-border-gradient"></div>
+          <div class="team-avatar">
+            <i class="fa-solid fa-palette"></i>
+            <div class="avatar-ring"></div>
+          </div>
           <h3 class="name">Ilham</h3>
           <p class="role">Frontend Developer</p>
+          <div class="skill-bars">
+            <div class="skill">
+              <span class="skill-name">UI/UX Design</span>
+              <div class="skill-track"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">React/Vue</span>
+              <div class="skill-track"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+          </div>
           <p class="tagline">// pixel perfectionist</p>
+          <div class="card-social">
+            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
         </div>
 
         <!-- Faizal -->
-        <div class="team-card reveal">
-          <div class="team-avatar"><i class="fa-solid fa-database"></i></div>
+        <div class="team-card reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-border-gradient"></div>
+          <div class="team-avatar">
+            <i class="fa-solid fa-database"></i>
+            <div class="avatar-ring"></div>
+          </div>
           <h3 class="name">Faizal</h3>
           <p class="role">Backend Developer</p>
+          <div class="skill-bars">
+            <div class="skill">
+              <span class="skill-name">API Design</span>
+              <div class="skill-track"><div class="skill-fill" data-width="94"></div></div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">Database</span>
+              <div class="skill-track"><div class="skill-fill" data-width="91"></div></div>
+            </div>
+          </div>
           <p class="tagline">// API whisperer</p>
+          <div class="card-social">
+            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
         </div>
 
         <!-- Rio -->
-        <div class="team-card reveal">
-          <div class="team-avatar"><i class="fa-solid fa-gears"></i></div>
+        <div class="team-card reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-border-gradient"></div>
+          <div class="team-avatar">
+            <i class="fa-solid fa-gears"></i>
+            <div class="avatar-ring"></div>
+          </div>
           <h3 class="name">Rio</h3>
           <p class="role">DevOps Engineer</p>
+          <div class="skill-bars">
+            <div class="skill">
+              <span class="skill-name">CI/CD</span>
+              <div class="skill-track"><div class="skill-fill" data-width="93"></div></div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">Cloud Infra</span>
+              <div class="skill-track"><div class="skill-fill" data-width="89"></div></div>
+            </div>
+          </div>
           <p class="tagline">// deploy with confidence</p>
+          <div class="card-social">
+            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -133,45 +249,120 @@
   <section class="section" id="tech">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">Tech Stack</span>
-        <h2 class="section-title">Tools Andalan Kami </h2>
+        <span class="section-label"><i class="fa-solid fa-bolt"></i> Tech Stack</span>
+        <h2 class="section-title">Tools <span class="animated-gradient-text">Andalan</span> Kami</h2>
         <p class="section-subtitle">Simple, powerful, dan efektif.</p>
       </div>
 
-      <div class="tech-grid reveal">
-        <div class="tech-item">
-          <div class="tech-icon"><i class="fa-brands fa-html5"></i></div>
-          <p class="tech-name">HTML5</p>
-          <p class="tech-desc">Struktur</p>
+      <div class="tech-orbit reveal">
+        <div class="orbit-center">
+          <i class="fa-solid fa-code"></i>
+          <span>VCS</span>
         </div>
-        <div class="tech-item">
-          <div class="tech-icon"><i class="fa-brands fa-css3-alt"></i></div>
-          <p class="tech-name">CSS3</p>
-          <p class="tech-desc">Styling</p>
+
+        <div class="tech-grid">
+          <div class="tech-item" data-tech="html">
+            <div class="tech-icon-wrapper">
+              <div class="tech-glow"></div>
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <p class="tech-name">HTML5</p>
+            <p class="tech-desc">Struktur</p>
+          </div>
+          <div class="tech-item" data-tech="css">
+            <div class="tech-icon-wrapper">
+              <div class="tech-glow"></div>
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <p class="tech-name">CSS3</p>
+            <p class="tech-desc">Styling</p>
+          </div>
+          <div class="tech-item" data-tech="js">
+            <div class="tech-icon-wrapper">
+              <div class="tech-glow"></div>
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <p class="tech-name">JavaScript</p>
+            <p class="tech-desc">Interaktivitas</p>
+          </div>
+          <div class="tech-item" data-tech="golang">
+            <div class="tech-icon-wrapper">
+              <div class="tech-glow"></div>
+              <i class="fa-brands fa-golang"></i>
+            </div>
+            <p class="tech-name">Golang</p>
+            <p class="tech-desc">Backend</p>
+          </div>
+          <div class="tech-item" data-tech="docker">
+            <div class="tech-icon-wrapper">
+              <div class="tech-glow"></div>
+              <i class="fa-brands fa-docker"></i>
+            </div>
+            <p class="tech-name">Docker</p>
+            <p class="tech-desc">Containerization</p>
+          </div>
+          <div class="tech-item" data-tech="git">
+            <div class="tech-icon-wrapper">
+              <div class="tech-glow"></div>
+              <i class="fa-brands fa-git-alt"></i>
+            </div>
+            <p class="tech-name">Git</p>
+            <p class="tech-desc">Version Control</p>
+          </div>
         </div>
-        <div class="tech-item">
-          <div class="tech-icon"><i class="fa-brands fa-js"></i></div>
-          <p class="tech-name">JavaScript</p>
-          <p class="tech-desc">Interaktivitas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section stats-section" id="stats">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label"><i class="fa-solid fa-chart-line"></i> Stats</span>
+        <h2 class="section-title">Pencapaian <span class="animated-gradient-text">Kami</span></h2>
+      </div>
+
+      <div class="stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-code-commit"></i></div>
+          <div class="stat-number" data-target="1247">0</div>
+          <div class="stat-label">Total Commits</div>
         </div>
-        <div class="tech-item">
-          <div class="tech-icon"><i class="fa-brands fa-golang"></i></div>
-          <p class="tech-name">Golang</p>
-          <p class="tech-desc">Backend</p>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <div class="stat-number" data-target="3842">0</div>
+          <div class="stat-label">Cups of Coffee</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-code-branch"></i></div>
+          <div class="stat-number" data-target="56">0</div>
+          <div class="stat-label">Pull Requests</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-bug"></i></div>
+          <div class="stat-number" data-target="189">0</div>
+          <div class="stat-label">Bugs Fixed</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Motto Section -->
-  <section class="motto-section" id="motto">
+  <section class="section motto-section" id="motto">
     <div class="container">
       <div class="motto-card reveal">
+        <div class="motto-decoration">
+          <span class="quote-mark">"</span>
+        </div>
         <blockquote>
-          "Code with <span class="gradient-text">passion</span>,<br/>
-          deploy with <span class="gradient-text">confidence</span>."
+          Code with <span class="animated-gradient-text">passion</span>,<br/>
+          deploy with <span class="animated-gradient-text">confidence</span>.
         </blockquote>
         <p class="motto-author">— Vibe Coder Sejati</p>
+        <div class="motto-particles">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
   </section>
@@ -179,10 +370,17 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>
-        Dibuat dengan <span class="heart"><i class="fa-solid fa-heart"></i></span> oleh
-        <strong>Faizal, Rio, Zidhan & Ilham</strong> — 2026
-      </p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
+          <span class="logo-text">VCS</span>
+        </div>
+        <p class="footer-text">
+          Dibuat dengan <span class="heart"><i class="fa-solid fa-heart"></i></span> oleh
+          <strong>Faizal, Rio, Zidhan & Ilham</strong>
+        </p>
+        <p class="footer-year">© 2026 Vibe Coder Sejati. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

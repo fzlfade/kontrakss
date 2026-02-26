@@ -11,6 +11,12 @@
 </head>
 <body>
 
+  <!-- Skip Navigation -->
+  <a href="#hero" class="skip-nav">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
+
   <!-- Particle Canvas Background -->
   <canvas id="particles-canvas"></canvas>
 
@@ -33,7 +39,7 @@
         <li><a href="#stats" class="nav-link" data-section="stats">Stats</a></li>
         <li><a href="#motto" class="nav-link" data-section="motto">Motto</a></li>
       </ul>
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
@@ -156,12 +162,9 @@
           </div>
           <p class="tagline">// architect of dreams</p>
           <div class="card-social">
-            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="social-link" aria-label="Zidhan GitHub profile"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link" aria-label="Zidhan LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
           </div>
-        </div>
-
-        <!-- Ilham -->
         <div class="team-card reveal" data-tilt>
           <div class="card-glow"></div>
           <div class="card-border-gradient"></div>
@@ -183,8 +186,8 @@
           </div>
           <p class="tagline">// pixel perfectionist</p>
           <div class="card-social">
-            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="social-link" aria-label="Ilham GitHub profile"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link" aria-label="Ilham LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
           </div>
         </div>
 
@@ -210,8 +213,8 @@
           </div>
           <p class="tagline">// API whisperer</p>
           <div class="card-social">
-            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="social-link" aria-label="Faizal GitHub profile"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link" aria-label="Faizal LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
           </div>
         </div>
 
@@ -237,8 +240,8 @@
           </div>
           <p class="tagline">// deploy with confidence</p>
           <div class="card-social">
-            <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="social-link" aria-label="Rio GitHub profile"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link" aria-label="Rio LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
           </div>
         </div>
       </div>
@@ -383,6 +386,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
 
   <script src="js/app.js"></script>
 </body>

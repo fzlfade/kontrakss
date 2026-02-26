@@ -109,6 +109,37 @@ class ParticleSystem {
   }
 }
 
+// ===== Scroll Progress Bar =====
+const initScrollProgress = () => {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = `${progress}%`;
+  });
+};
+
+// ===== Back to Top Button =====
+const initBackToTop = () => {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+};
+
 // ===== Navbar Scroll Effect =====
 const initNavbar = () => {
   const navbar = document.querySelector('.navbar');
@@ -147,19 +178,53 @@ const initNavbar = () => {
 const initMobileMenu = () => {
   const toggle = document.getElementById('mobile-toggle');
   const navLinks = document.getElementById('nav-links');
+  const overlay = document.getElementById('menu-overlay');
   if (!toggle || !navLinks) return;
 
+  const openMenu = () => {
+    toggle.classList.add('active');
+    navLinks.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    if (overlay) {
+      overlay.classList.add('visible');
+      overlay.removeAttribute('aria-hidden');
+    }
+  };
+
+  const closeMenu = () => {
+    toggle.classList.remove('active');
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (overlay) {
+      overlay.classList.remove('visible');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+  };
+
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    navLinks.classList.toggle('open');
+    if (navLinks.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   // Close on link click
   navLinks.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      navLinks.classList.remove('open');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on overlay click
+  if (overlay) {
+    overlay.addEventListener('click', closeMenu);
+  }
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
+    }
   });
 };
 
@@ -378,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new ParticleSystem('particles-canvas');
 
   // Core features
+  initScrollProgress();
   initNavbar();
   initMobileMenu();
   initSmoothScroll();
@@ -387,6 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillBars();
   initStatsCounter();
   initTechItems();
+  initBackToTop();
   initKonamiCode();
 
   // Console branding

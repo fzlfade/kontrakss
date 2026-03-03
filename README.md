@@ -53,3 +53,6 @@ kontrakss/
 ## Lisensi
 
 Project ini dibuat oleh tim **Vibe Coder Sejati** — 2026.
+
+===========
+saya rio dan saya mau pr perubahan ini
